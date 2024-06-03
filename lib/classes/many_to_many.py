@@ -42,7 +42,7 @@ class Article:
             raise TypeError("Magazine must be an instance of Magazine")
         self._magazine = value
 
-class Author:
+class Author(Article):
     def __init__(self, name):
         if not isinstance(name, str) or len(name) == 0:
             raise ValueError("Name must be a non-empty string")
@@ -69,7 +69,7 @@ class Author:
         return list(set(article.magazine.category for article in self._articles))
 
 
-class Magazine:
+class Magazine(Article):
     _all_magazines = []
 
     def __init__(self, name, category):
